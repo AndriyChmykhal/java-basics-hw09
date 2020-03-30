@@ -1,3 +1,6 @@
+import com.sun.xml.internal.xsom.parser.XSOMParser;
+
+import java.util.ArrayList;
 import java.util.HashSet;
 
 /**
@@ -12,8 +15,21 @@ public class ArrayUtil {
    * @param array2 second array
    * @return String array with common elements
    */
+
   public static String[] findCommon(String[] array1, String[] array2) {
-    // TODO fill in code here
-    return new String[0];
+    ArrayList<String> similarList = new ArrayList<>();
+    for (int i = 0; i < array1.length; i++) {
+      for (int j = 0; j < array2.length; j++) {
+        if (array1[i].equals(array2[j])) {
+          similarList.add(array2[j]);
+        }
+      }
+    }
+
+    String[] result = new String[similarList.size()];
+    for (int i = 0; i < result.length; i++) {
+      result[i] = similarList.get(i);
+    }
+    return result;
   }
 }
